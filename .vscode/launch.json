@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+
     {
       "type": "java",
       "name": "Question Service (8080)",
@@ -15,6 +16,13 @@
       "mainClass": "com.example.question_service.QuestionServiceApplication",
       "projectName": "question-service",
       "vmArgs": "-Dserver.port=8081"
+    },
+    {
+      "type": "java",
+      "name": "Service Registry (8761)",
+      "request": "launch",
+      "mainClass": "com.example.service_registry.ServiceRegistryApplication",
+      "projectName": "service-registry"
     }
   ]
 }

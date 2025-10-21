@@ -1,8 +1,6 @@
 package com.example.quiz_service.handlers;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.quiz_service.domains.AnswerResponse;
 import com.example.quiz_service.domains.QuestionResponse;
+import com.example.quiz_service.domains.QuizRequestDto;
 import com.example.quiz_service.usecase.QuizUsecase;
 
 
@@ -26,9 +25,9 @@ public class Quizhandler {
     QuizUsecase quizUsecase;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createQuiz(@RequestParam String category, @RequestParam Integer noOfQuestion, @RequestParam String title) {
+    public ResponseEntity<String> createQuiz(@RequestBody QuizRequestDto quizRequestDto) {
 
-        return quizUsecase.createQuiz(category, noOfQuestion, title);
+        return quizUsecase.createQuiz(quizRequestDto);
     }
 
     @GetMapping("/getQuizById/{id}")
@@ -37,10 +36,10 @@ public class Quizhandler {
         return quizUsecase.getQuizById(id);
     }
 
-    @PostMapping("/submit/{quizId}")
-    public ResponseEntity<Integer> calculateResult(@PathVariable int quizId, @RequestBody List<AnswerResponse> answers) {
+    @PostMapping("/submit")
+    public ResponseEntity<Integer> calculateResult(@RequestBody List<AnswerResponse> answers) {
         
-        return quizUsecase.calculateResult(quizId, answers);
+        return quizUsecase.calculateResult(answers);
     }
 
 }

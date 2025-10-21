@@ -52,7 +52,6 @@ public class Questionhandler {
 
     @PostMapping("/submit")
     public ResponseEntity<Integer> calculateScore(@RequestBody List<AnswerResponse> answerResponses) {
-        System.out.println("here");
         return questionUsecase.calculateScore(answerResponses);
     }
 
