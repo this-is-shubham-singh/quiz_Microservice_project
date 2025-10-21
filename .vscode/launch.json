@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Question Service (8080)",
+      "request": "launch",
+      "mainClass": "com.example.question_service.QuestionServiceApplication",
+      "projectName": "question-service"
+    },
+    {
+      "type": "java",
+      "name": "Question Service (8081)",
+      "request": "launch",
+      "mainClass": "com.example.question_service.QuestionServiceApplication",
+      "projectName": "question-service",
+      "vmArgs": "-Dserver.port=8081"
+    }
+  ]
+}
